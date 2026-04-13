@@ -1,10 +1,10 @@
 package all.tech.practice.logical.stringProblems;
 
 // Longest substring without 'a':
-public class GetFirstLongestSubString {
+public class LongestSubString {
     public static void main(String[] args) {
-
         String s = "abcabcdababs"; // expected = bcd
+
         String longest = "";
         String[] substrings = s.split("a");
         for (String substring : substrings) {

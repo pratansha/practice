@@ -1,4 +1,4 @@
-package multithreading.core;
+package all.tech.practice.java.multithreading.core;
 
 
 import java.util.ArrayList;
@@ -11,6 +11,9 @@ public class ArrayBlockingQueueDemo {
     public static void main(String[] args) throws Exception {
         int capacity = 5;
         boolean fair = true; // try false to see different behavior under contention
+        // If fair is false , It means any Thread waiting for long will not get priority.(random)
+        // So Older Thread will be starvation to get occupy.
+        // If fair is true , Longer waiting thread will get first access.
         ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(capacity, fair);
 
         System.out.println("=== ArrayBlockingQueue Demo ===");

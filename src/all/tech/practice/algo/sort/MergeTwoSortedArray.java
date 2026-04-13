@@ -1,4 +1,4 @@
-package algorithms.sort;
+package all.tech.practice.algo.sort;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package practice.logical;
+package all.tech.practice.logical;
 
 import java.util.ArrayList;
 import java.util.List;

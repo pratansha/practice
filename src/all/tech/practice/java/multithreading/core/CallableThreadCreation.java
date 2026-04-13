@@ -1,7 +1,6 @@
-package multithreading.core;
+package all.tech.practice.java.multithreading.core;
 
 import java.util.LinkedHashMap;
-import java.util.Queue;
 import java.util.concurrent.*;
 
 public class CallableThreadCreation {
