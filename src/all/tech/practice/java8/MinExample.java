@@ -1,9 +1,8 @@
 package all.tech.practice.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 // All Min function used in java-8
 public class MinExample {
@@ -22,5 +21,10 @@ public class MinExample {
         min1.ifPresent(v -> System.out.println("min1 = " + v));
         min2.ifPresent(v -> System.out.println("min2 = " + v));
         max.ifPresent(v -> System.out.println("max = " + v));
+
+        String str = "i love my india";
+        //str.chars();
+        Map<String, Long> count = Arrays.stream(str.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(count);
     }
 }

@@ -5,6 +5,7 @@ import java.util.*;
 public class GraphExample {
     static class Graph {
         private final Map<Integer, List<Integer>> graph = new HashMap<>();
+
         // Your method
         // add linking between 2 nodes so each node will have a link to another node (vice versa).
         public void addEdge(int u, int v) {

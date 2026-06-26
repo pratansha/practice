@@ -17,6 +17,8 @@ public class BinarySearchAlgoUsingRecursion {
 
         // To apply Binary search it should be sort.
         System.out.println(findStringPosUsingRecursion(numbers, 0, numbers.length - 1, searchElement));
+        System.out.println(findStringPosUsingRecursionTest(numbers, 0, numbers.length - 1, searchElement));
+
     }
 
     public static int findStringPosUsingRecursion(int[] numbers, int start, int end, int target) {
@@ -26,5 +28,13 @@ public class BinarySearchAlgoUsingRecursion {
         else if (numbers[mid] < target)
             return findStringPosUsingRecursion(numbers, mid + 1, end, target);
         else return findStringPosUsingRecursion(numbers, start, mid - 1, target);
+    }
+
+    public static int findStringPosUsingRecursionTest(int[] numbers, int start, int end, int target) {
+        int med = (start + end) / 2;
+        if (numbers[med] == target)
+            return med;
+        else if (numbers[med] < target) return findStringPosUsingRecursionTest(numbers, med + 1, end, target);
+        else return findStringPosUsingRecursionTest(numbers, start, med - 1, target);
     }
 }

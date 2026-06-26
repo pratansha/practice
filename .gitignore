@@ -31,3 +31,5 @@ bin/
 .slingshot/
 .idea/
 *.iml
+*.class
+*.jar

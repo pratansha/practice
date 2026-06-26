@@ -1,13 +1,11 @@
 package all.tech.practice.logical.arrayProblems;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GroupListOfStringsToSetOfAnagrams {
     public static void main(String[] args) {
-        convertFromListToGroupOfSetsOfAnagrams("eat", "tea", "tan", "ate", "nat", "bat");
+        convertFromListToGroupOfSetsOfAnagramsUsingJava8("eat", "tea", "tan", "ate", "nat", "bat");
         convertFromListToGroupOfSetsOfAnagrams("listen", "silent", "enlist", "rat", "tar", "art");
         convertFromListToGroupOfSetsOfAnagrams("apple", "banana", "cherry");
         convertFromListToGroupOfSetsOfAnagrams("a", "b", "a", "c", "b");
@@ -21,8 +19,14 @@ public class GroupListOfStringsToSetOfAnagrams {
             map.computeIfAbsent(key, k -> new ArrayList<>()).add(string);
         }
         System.out.println(map);
-        /*List<List<String>> arrayList = new ArrayList<>(map.values());
-        System.out.println(arrayList);*/
+    }
+
+    private static void convertFromListToGroupOfSetsOfAnagramsUsingJava8(String... array) {
+        System.out.println(Arrays.stream(array)
+                .map(x -> calculateCanonicalFromString(x) + "--" + x)
+                .collect(Collectors.groupingBy(x -> x.split("--")[0])));
+
+        System.out.println("\n\n\n\n");
     }
 
     private static String calculateCanonicalFromString(String str) {

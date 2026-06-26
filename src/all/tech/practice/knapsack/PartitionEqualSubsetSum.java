@@ -70,6 +70,7 @@ public class PartitionEqualSubsetSum {
     private static boolean checkPartitionIsPossibleUsingRecursionHelper(int[] arr, int sum, int currentIndex) {
         if (sum == 0) return true;
         if (currentIndex >= arr.length) return false;
+        //  1 2 3 4
         if (arr[currentIndex] <= sum && checkPartitionIsPossibleUsingRecursionHelper(arr, sum - arr[currentIndex], currentIndex + 1))
             return true;
         // Recursive call after excluding the number at the currentIndex
@@ -111,17 +112,16 @@ public class PartitionEqualSubsetSum {
 
         int sum = totalSum / 2;
         boolean[] dp = new boolean[sum + 1];
-        dp[0] = true; // Base case: zero sum is always achievable
+        dp[0] = true; // Base case: zero-sum is always achievable
 
+       // dp[0,1,2,3,4,5]  => dp[0,0,0,0,0,0] ;
+       // num = 1 ==> sum = 5,4,3,2,1,0  ==>  dp[5] = d[5] || d[4] = false , dp[4] = d[4] || d[3] = false , dp[3] = d[3] || d[2] = false , dp[2] = d[2] || d[1] = false , dp[1] = d[1] || d[0] = true.
+        // 1 2 3 4
         for (int num : arr) {
             for (int s = sum; s >= num; s--) {
                 dp[s] = dp[s] || dp[s - num];
             }
         }
         return dp[sum];
-
-
     }
-
-
 }

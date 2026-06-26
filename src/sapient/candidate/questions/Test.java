@@ -1,7 +1,9 @@
 package sapient.candidate.questions;
 
+import java.io.IOException;
+
 public class Test {
-    Test t ;
+    Test t;
 
     public Test() {
         t = new Test();
@@ -13,15 +15,15 @@ public class Test {
 }
 
 
-class Parent {
-    protected void mac1() {
+class Parent extends RuntimeException{
+    protected void mac1() throws Exception {
 
     }
 
 }
 
 class Child extends Parent {
-    public void mac1() {
+    public void mac1() throws IOException {
 
     }
 }

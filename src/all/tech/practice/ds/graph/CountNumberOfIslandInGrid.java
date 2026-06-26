@@ -146,4 +146,28 @@ public class CountNumberOfIslandInGrid {
         makeAdjacentToZeroDFS(grid, rowsLength, columnLength, row, column - 1);  // left
         makeAdjacentToZeroDFS(grid, rowsLength, columnLength, row, column + 1);  // right
     }
+
+    private static int numIslands1(int[][] grid) {
+        int numberOfIslands = 0;
+        int rowLength = grid.length;
+        int columnLength = grid[0].length;
+
+        for (int row = 0; row < grid.length; row++) {
+            for (int column = row; column < grid[row].length; column++) {
+                makeAdjacentToZeroDFS1(grid, rowLength, columnLength, row, column);
+            }
+        }
+        return numberOfIslands;
+    }
+
+    private static void makeAdjacentToZeroDFS1(int[][] grid, int rowsLength, int columnLength, int row, int column) {
+        if (row >= rowsLength || row < 0 || column >= columnLength || column < 0 || grid[row][column] == 0)
+            return;
+
+        grid[row][column] = 0;
+        makeAdjacentToZeroDFS1(grid, rowsLength, columnLength, row + 1, column); //  down
+        makeAdjacentToZeroDFS1(grid, rowsLength, columnLength, row - 1, column); // up
+        makeAdjacentToZeroDFS1(grid, rowsLength, columnLength, row, column + 1); // right
+        makeAdjacentToZeroDFS1(grid, rowsLength, columnLength, row, column - 1); // left
+    }
 }
